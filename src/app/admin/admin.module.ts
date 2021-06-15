@@ -8,6 +8,13 @@ import { AddTipoAsuntoComponent } from './pages/add-tipo-asunto/add-tipo-asunto.
 import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 import { GeneratorQrComponent } from './pages/generator-qr/generator-qr.component';
 import { AddTramiteComponent } from './pages/add-tramite/add-tramite.component';
+import { HomeComponent } from './pages/home/home.component';
+import { UiElementsModule } from '../ui-elements/ui-elements.module';
+import { SharedModule } from '../shared/shared.module';
+import { VerAsuntoComponent } from './pages/ver-asunto/ver-asunto.component';
+import { AddUserComponent } from './pages/add-user/add-user.component';
+import { ListadoUserComponent } from './pages/listado-user/listado-user.component';
+import { ListadoClientesComponent } from './pages/listado-clientes/listado-clientes.component';
 
 
 @NgModule({
@@ -17,11 +24,18 @@ import { AddTramiteComponent } from './pages/add-tramite/add-tramite.component';
     AddTipoAsuntoComponent,
     DashboardAdminComponent,
     GeneratorQrComponent,
-    AddTramiteComponent
+    AddTramiteComponent,
+    HomeComponent,
+    VerAsuntoComponent,
+    AddUserComponent,
+    ListadoUserComponent,
+    ListadoClientesComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    UiElementsModule,
+    SharedModule
   ]
 })
 export class AdminModule { }
