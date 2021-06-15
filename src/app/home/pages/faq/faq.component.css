@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+}
+
+.encabezado, .pie-pagina{
+    padding: 1em 2em;
+}
+
+.titulo{
+    text-align: center;
+    margin-top: 130px;
+    
+}
+.encabezado{
+    background-image: url(../../../../assets/Imgpreguntas.jpg);
+    height: 260px;
+    background-size: cover;
+}
+.Contenido {
+    box-sizing:border-box;
+}
+
+.Contenido{
+    height: 1100px;
+    padding: 40px;
+}
+
+.pie-pagina{
+    width: 100%;
+    background-color:darkcyan;
+    height: 260px;
+}
+
+@media screen and (max-width: 900px) {
+    .Contenido{
+        height: 1800px;
+        padding: 15px;
+    }
+
+
+}
