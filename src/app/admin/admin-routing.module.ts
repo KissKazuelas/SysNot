@@ -21,21 +21,21 @@ const routes: Routes = [{
     //Agregar
     { path: 'agregarUsuario', component: AddUserComponent },
     //Editar: 
-    { path: 'agregarUsuario:id', component: AddUserComponent },
+    { path: 'editarUsuario/:id', component: AddUserComponent },
     //Ver Usuarios:
     { path: 'listadoUsuarios', component: ListadoUserComponent },
     //ASUNTOS
     //Agregar
     { path: 'agregarAsunto', component: AddAsuntoComponent },
     //Editar (En caso de algun error al registro o re-asignacion)
-    { path: 'agregarAsunto:id', component: AddAsuntoComponent },
+    { path: 'editarAsunto/:id', component: AddAsuntoComponent },
     //Agregar tipo ( Categoria )
     { path: 'agregarTipoAsunto', component: AddTipoAsuntoComponent },
     //CLIENTES
     //Agregar:
     { path: 'agregarCliente', component: AddClienteComponent },
     //Editar
-    { path: 'agregarCliente:id', component: AddClienteComponent },
+    { path: 'editarCliente/:id', component: AddClienteComponent },
     //Ver Clientes
     { path: 'listadoClientes', component: ListadoClientesComponent },
     

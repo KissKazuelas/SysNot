@@ -1,1 +1,23 @@
-<p>add-user works!</p>
+<h1 class="text-layout">Registrar Usuario</h1>
+<div class="card">
+    <form class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12">
+				<label class="text-layout" for="firstname2">Nombre Completo</label>
+				<input class="p-inputtext" type="text" pInputText> 
+       		</div>
+			   <div class="p-field p-col">
+				<label class="text-layout" for="firstname2">Coreo electronico</label>
+				<input class="p-inputtext" type="email" pInputText> 
+			</div>
+			<div class="p-field p-col">
+				<label class="text-layout" for="lastname2">Telefono</label>
+				<input class="p-inputtext"  type="text" pInputText> 
+			</div>	   
+			<div class="p-field p-col-12">
+				<label class="text-layout" for="firstname2">Rol</label>
+				<p-cascadeSelect *ngIf="roles" [(ngModel)]="usuario.role" [options]="roles" optionLabel="cname" optionGroupLabel="role" 
+    			 [style]="{'minWidth': '14rem'}"></p-cascadeSelect>
+
+       		</div>
+    </form>
+</div>

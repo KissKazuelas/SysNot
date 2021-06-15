@@ -15,6 +15,7 @@ import { VerAsuntoComponent } from './pages/ver-asunto/ver-asunto.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { ListadoUserComponent } from './pages/listado-user/listado-user.component';
 import { ListadoClientesComponent } from './pages/listado-clientes/listado-clientes.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,7 +36,11 @@ import { ListadoClientesComponent } from './pages/listado-clientes/listado-clien
     CommonModule,
     AdminRoutingModule,
     UiElementsModule,
-    SharedModule
+    SharedModule,
+    FormsModule
+  ],
+  exports:[
+    ListadoUserComponent
   ]
 })
 export class AdminModule { }

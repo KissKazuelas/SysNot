@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminServiceService } from '../../services/admin-service.service';
+import { User } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-listado-user',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoUserComponent implements OnInit {
 
-  constructor() { }
+  usuarios!: User;
+
+  constructor(private adminService : AdminServiceService) { }
 
   ngOnInit(): void {
+    this.adminService.getUsers()
+    .subscribe(resp=> { console.log(resp); 
+      
+      this.usuarios = resp});
   }
 
 }

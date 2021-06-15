@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserElement } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-add-user',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddUserComponent implements OnInit {
 
+
+  roles!: any[];
+
+  usuario!: UserElement;
+
   constructor() { }
 
   ngOnInit(): void {
+      this.roles = [
+        {
+          role:"USER"
+        },
+        {
+          role:"ADMIN"
+        }
+      ]
   }
 
 }

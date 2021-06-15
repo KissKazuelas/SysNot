@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {ToolbarModule} from 'primeng/toolbar';
 import {MenubarModule} from 'primeng/menubar';
 import {TableModule} from 'primeng/table';
+import {CardModule} from 'primeng/card';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
 @NgModule({
   declarations: [],
   imports: [
@@ -10,7 +12,9 @@ import {TableModule} from 'primeng/table';
   ],
   exports: [
     MenubarModule,
-    TableModule
+    TableModule,
+    CardModule,
+    CascadeSelectModule
   ]
 })
 export class UiElementsModule { }
