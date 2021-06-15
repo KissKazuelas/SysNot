@@ -1,0 +1,24 @@
+.Contenido{
+    background-image: url(../../../../assets/imgNotaria1.jpeg);
+    background-color: rgb(53, 51, 51);
+    background-blend-mode:soft-light;
+    height: 900px;
+    padding-top: 1px;
+    background-size: cover;
+}
+body{
+    margin: 0px;
+}
+
+.titulo{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    margin-top:140px;
+}
+
+.subtitulo{
+    color: white;
+    font-size: 35px;
+    text-align: center;
+}
