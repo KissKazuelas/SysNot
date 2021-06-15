@@ -5,6 +5,7 @@ import { from } from 'rxjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from '../app/home/home.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HomeModule } from '../app/home/home.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

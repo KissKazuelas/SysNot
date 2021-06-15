@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { UiElementsRoutingModule } from './ui-elements-routing.module';
-
-
+import {ToolbarModule} from 'primeng/toolbar';
+import {MenubarModule} from 'primeng/menubar';
+import {TableModule} from 'primeng/table';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    UiElementsRoutingModule
+  ],
+  exports: [
+    MenubarModule,
+    TableModule
   ]
 })
 export class UiElementsModule { }
