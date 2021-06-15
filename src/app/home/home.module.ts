@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { FaqComponent } from './pages/faq/faq.component';
     FaqComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule, FormsModule, ReactiveFormsModule
   ]
 })
 export class HomeModule { }
