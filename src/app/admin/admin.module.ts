@@ -15,7 +15,7 @@ import { VerAsuntoComponent } from './pages/ver-asunto/ver-asunto.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { ListadoUserComponent } from './pages/listado-user/listado-user.component';
 import { ListadoClientesComponent } from './pages/listado-clientes/listado-clientes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import { FormsModule } from '@angular/forms';
     AdminRoutingModule,
     UiElementsModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     ListadoUserComponent

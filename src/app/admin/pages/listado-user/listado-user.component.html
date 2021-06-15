@@ -1,4 +1,7 @@
 
+<div *ngIf="!usuarios">
+	<p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+</div>	
 	<div class="p-grid p-mt-4" *ngIf="usuarios">
 		<div class="p-col p-mt-2">
 			<p-table [value]="usuarios.users" styleClass="p-datatable-responsive-demo" [scrollable]="true" [rows]="32" scrollHeight="500px"
@@ -24,11 +27,3 @@
 		
 		</div>
 	</div>
-
-<div *ngIf="usuarios">
-	<div *ngFor="let item of usuarios.users">
-
-		{{item |json}}
-	
-	</div>
-</div>

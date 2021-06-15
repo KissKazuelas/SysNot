@@ -4,7 +4,13 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {MenubarModule} from 'primeng/menubar';
 import {TableModule} from 'primeng/table';
 import {CardModule} from 'primeng/card';
-import {CascadeSelectModule} from 'primeng/cascadeselect';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -14,7 +20,12 @@ import {CascadeSelectModule} from 'primeng/cascadeselect';
     MenubarModule,
     TableModule,
     CardModule,
-    CascadeSelectModule
+    RadioButtonModule,
+    ProgressSpinnerModule,
+    InputTextModule,
+    ButtonModule,
+    MessagesModule,
+    MessageModule
   ]
 })
 export class UiElementsModule { }

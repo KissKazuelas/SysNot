@@ -11,7 +11,7 @@ import { UiElementsModule } from '../ui-elements/ui-elements.module';
 
 @NgModule({
   declarations: [
-    NavHomeComponent
+    NavHomeComponent,
     MenuComponent
   ],
   imports: [

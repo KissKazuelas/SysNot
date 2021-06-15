@@ -1,5 +1,4 @@
 
-@import "~bootstrap/dist/css/bootstrap.css";
 html, body{
 	margin: 10px;
 	background-color: var(--surface-b);
