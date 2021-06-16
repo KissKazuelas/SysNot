@@ -18,8 +18,6 @@ export class AddUserComponent implements OnInit {
     phone:[ '',[Validators.required, Validators.minLength(7), Validators.pattern("^[0-9]*$")]],
     role: ['USER',Validators.required]
   })
-    
-
 
   usuario: UserElement = {
     name: "",
@@ -27,6 +25,10 @@ export class AddUserComponent implements OnInit {
     phone: "",
     role: ""
   };
+
+  ngOnInit(): void {
+
+  }
 
   get emailErrorMsg() :string{
     const errors = this.miFormulario.get('email')?.errors;
@@ -42,22 +44,20 @@ export class AddUserComponent implements OnInit {
     if(errors?.required){
       return 'Telefono obligatorio';
     }else if( errors?.pattern){
-      return 'El telefono debe ser contener solo números';
+      return 'El telefono debe contener solo números';
     }else if(errors?.minlength){
       return 'Telefono demasiado corto';
     }
     return '';
   }
 
+
   msgs1!: Message[];
   constructor(private fb : FormBuilder,
               private adminServices : AdminServiceService) { }
 
-  ngOnInit(): void {
-      
-  }
   campoEsValido( campo: string ) {
-    return this.miFormulario.controls[campo].errors 
+    return this.miFormulario.controls[campo].errors
             && this.miFormulario.controls[campo].touched;
   }
   submitForm(){
@@ -66,7 +66,7 @@ export class AddUserComponent implements OnInit {
        console.log("succes");
        console.log(this.miFormulario.value);
        this.usuario=this.miFormulario.value;
-       console.log(this.usuario); 
+       console.log(this.usuario);
        this.adminServices.addUser(this.usuario)
        .subscribe(resp=>{
         this.msgs1 = [

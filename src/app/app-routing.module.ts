@@ -3,11 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './home/pages/main-page/main-page.component';
 import { ContactComponent } from './home/pages/contact/contact.component';
 import { FaqComponent } from './home/pages/faq/faq.component';
+import { AuthModule } from './auth/auth.module';
 
 const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule ),
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule),
   },
   {
     path: '',

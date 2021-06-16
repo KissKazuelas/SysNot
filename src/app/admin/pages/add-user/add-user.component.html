@@ -5,42 +5,42 @@
             <div class="p-field p-col-12">
 				<label class="text-layout" for="firstname2">Nombre Completo</label>
 					<input class="p-inputtext"
-						   type="text" 
+						   type="text"
 						   pInputText
 						   placeholder="Nombre de ususario"
-						   formControlName="name"> 
+						   formControlName="name">
 						   <small *ngIf="campoEsValido('name')" id="username2-help" class="p-error">Usuario Invalido</small>
 			</div>
 			<div class="p-field p-col">
 				<label class="text-layout" for="firstname2">Coreo electronico</label>
 				<input class="p-inputtext"
 						placeholder="Ingresa email"
-					   type="email" 
+					   type="email"
 						pInputText
-						formControlName="email"> 
-				<small *ngIf="campoEsValido('email')" id="username2-help" class="p-error">{{emailErrorMsg}}</small>
+						formControlName="email">
+				<small *ngIf="campoEsValido('email')" class="p-error">{{emailErrorMsg}}</small>
 			</div>
 			<div class="p-field p-col">
 				<label class="text-layout">Telefono</label>
 				<input class="p-inputtext"
 						placeholder="Ingresa número telefónico"
-						type="text" 
+						type="text"
 						formControlName="phone"
-						pInputText> 
-				<small *ngIf="campoEsValido('phone')" id="username2-help" class="p-error"> {{phoneErrorMsg}} </small>
+						pInputText>
+				<small *ngIf="campoEsValido('phone')" class="p-error"> {{phoneErrorMsg}} </small>
 
-			</div>	   
+			</div>
 			<div class="p-field p-col-12">
 				<label class="text-layout p-mb-4" for="firstname2">Seleccione Rol</label>
-				
+
 				<div class="p-field p-col">
 					<p-radioButton class="text-layout" name="role" label="Administrador" value="ADMIN" formControlName="role"></p-radioButton>
 				</div>
 				<div class="p-field p-col">
-				
+
 					<p-radioButton class="text-layout" name="role" label="Usuario" value="USER" formControlName="role"></p-radioButton>
 				</div>
 			   </div>
-			<button pButton label="Registrar" type="submit"> </button>			   
+			<button pButton label="Registrar" type="submit"> </button>
     </form>
 </div>
