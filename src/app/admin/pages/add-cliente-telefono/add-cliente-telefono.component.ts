@@ -34,7 +34,7 @@ export class AddClienteTelefonoComponent implements OnInit {
     // CREAMOS UNA INSTANCIA DE CAPTCHA EN EL OBJETO WINDOW
     this.windowRef.recaptchaVerifier = new firebase.default.auth.RecaptchaVerifier('recaptcha-container');
     this.windowRef.recaptchaVerifier.render(); // RENDERIZAMOS EL CAPTCHA
-
+    
     /*this.fireAuth.user.subscribe((user)=>{      // VER ESTADO ACTUAL DEL USUARIO LOGEADO, RETORNA NULO SI NO HAY USUARIO LOGEADO
       this.uid="USUARIO LOGEADO "+user?.uid||"";
     })*/

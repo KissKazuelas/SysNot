@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule),
   },
   {
+    path: 'user',
+    loadChildren: () => import('./empleado/empleado.module').then( m => m.EmpleadoModule),
+  },
+  {
     path: '',
     component: MainPageComponent,
   },

@@ -9,10 +9,25 @@ import { ResgiterComponent } from './pages/resgiter/resgiter.component';
 import { LoginComponent } from './pages/login/login.component';
 
 
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthService } from './services/auth.service';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDUgq63WqudGUS1CqHfLRvEb2ogj6sV9KA",
+  authDomain: "proyectonotaria.firebaseapp.com",
+  projectId: "proyectonotaria",
+  storageBucket: "proyectonotaria.appspot.com",
+  messagingSenderId: "725211129961",
+  appId: "1:725211129961:web:b2cdf14ef5cf50206e9af8",
+  measurementId: "G-ES40Q9CJTD"
+};
+
 @NgModule({
   declarations: [
     ResgiterComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -20,8 +35,9 @@ import { LoginComponent } from './pages/login/login.component';
     UiElementsModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
-
-  ]
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
+  ],
 })
 export class AuthModule { }
