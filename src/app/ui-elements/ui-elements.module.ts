@@ -10,6 +10,7 @@ import {ButtonModule} from 'primeng/button';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {TabMenuModule} from 'primeng/tabmenu';
 
 @NgModule({
   declarations: [],
@@ -25,7 +26,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     InputTextModule,
     ButtonModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    TabMenuModule,
   ]
 })
 export class UiElementsModule { }

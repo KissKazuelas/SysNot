@@ -31,6 +31,10 @@ body{
     height: 260px;
 }
 
+#text{
+    color: white;
+}
+
 @media screen and (max-width: 900px) {
     .Contenido{
         height: 1800px;

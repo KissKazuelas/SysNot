@@ -5,21 +5,24 @@ import { NavHomeComponent } from './nav-home/nav-home.component';
 
 import { MenuComponent } from './menu/menu.component';
 import { UiElementsModule } from '../ui-elements/ui-elements.module';
-
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     NavHomeComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     UiElementsModule
   ],
   exports: [
-    MenuComponent
+    MenuComponent,
+    NavHomeComponent,
+    FooterComponent
   ]
 })
 export class SharedModule {
