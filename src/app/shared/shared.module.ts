@@ -19,7 +19,8 @@ import { UiElementsModule } from '../ui-elements/ui-elements.module';
     UiElementsModule
   ],
   exports: [
-    MenuComponent
+    MenuComponent,
+    NavHomeComponent
   ]
 })
 export class SharedModule {
