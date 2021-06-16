@@ -8,6 +8,7 @@ import {WindowService} from '../../../auth/services/window.service';
 import { UserElement, UID } from '../../interfaces/interfaces';
 import { AuthModule } from '../../auth.module';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,16 +17,14 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./resgiter.component.css']
 })
 export class ResgiterComponent implements OnInit {
-
-
   alertVisible: boolean = false;
-
   labelStatus: string = "Telefono";
   windowRef: any;
   constructor(private fb : FormBuilder, 
               private fireAuth:AngularFireAuth,
               private win: WindowService,
-              private authService : AuthService) { }
+              private authService : AuthService,
+              private router: Router) { }
   confirmationResult: firebase.default.auth.ConfirmationResult | any;
   codigoFormulario: string = "";
   uid:string|null = "";
@@ -59,6 +58,7 @@ export class ResgiterComponent implements OnInit {
         // SI TODO SALIO BIEN
         (result)=>{
           this.confirmationResult=result; // ESTE OBJETO TE SIRVE PARA VERIFICAR SI ESTA BIEN EL CODIGO
+
         }
       ).catch(error=>{
           return;
@@ -123,14 +123,19 @@ export class ResgiterComponent implements OnInit {
        if(this.miFormulario.get('type')?.value==="email"){
          this.fireAuth.createUserWithEmailAndPassword(this.miFormulario.get('email')?.value,this.miFormulario.get('pass')?.value)
          .then(resp=>{
-           this.usuario.UID= resp.user?.uid;
-           this.authService.agregarUser(this.usuario)
-           .subscribe(resp=>{
-              this.authService.login({UID: `${this.usuario.UID}`})
+              this.usuario.UID= resp.user?.uid;
+              this.authService.agregarUser(this.usuario)
               .subscribe(resp=>{
-                localStorage.setItem('tokenUser',resp.token);
-             })
-           })
+                      this.authService.login({UID: `${this.usuario.UID}`})
+                      .subscribe(resp=>{
+                        localStorage.setItem('tokenUser',resp.token)
+                        this.router.navigate(['./user']);
+                    })
+              },error => {
+                this.fireAuth.signOut().then(
+                  //alert(error);
+                );
+              });
          });
        }else if(this.miFormulario.get('type')?.value === "phone"){
           this.enviarSms();
@@ -158,11 +163,25 @@ export class ResgiterComponent implements OnInit {
     }
 
   }
+
+
   verificarCode(){
     // UTILIZAMOS EL CONFIRMATION RESULT PARA VERIFICAR QUE EL CODIGO QUE LE LLEGO SEA CORRECTO
     this.confirmationResult.confirm(this.codeVerification).then((result:any)=>{
-
       console.log(result);
+      this.usuario.UID= result.user?.uid;
+      this.authService.agregarUser(this.usuario)
+        .subscribe(resp=>{
+          console.log(resp);
+          this.authService.login({UID: `${this.usuario.UID}`})
+          .subscribe(resp=>{
+            localStorage.setItem('tokenUser',resp.token)
+            this.router.navigate(['./user']);
+          })
+      },error => {
+        this.fireAuth.signOut().then(
+        );
+      });
       // TE RETORNA EL USUARIO QUE SE LOGEO / CREO
       // INICIA LA SESION
       // NO SOLO VAS A INICIAR LA SESION, VAS A LLAMAR A EL API DE NODE PARA RECIBIR SUS DATOS
@@ -172,7 +191,6 @@ export class ResgiterComponent implements OnInit {
       // NO ESTA BIEN EL CODIGO DEL USUARIO
       console.log("HA OCURRIDO UN ERROR AL LOGEAR");
     })
-  
   }
 
   

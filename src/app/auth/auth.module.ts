@@ -7,8 +7,12 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResgiterComponent } from './pages/resgiter/resgiter.component';
 import { LoginComponent } from './pages/login/login.component';
+
+
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthService } from './services/auth.service';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDUgq63WqudGUS1CqHfLRvEb2ogj6sV9KA",
@@ -23,7 +27,7 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     ResgiterComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -34,7 +38,6 @@ const firebaseConfig = {
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule
-
-  ]
+  ],
 })
 export class AuthModule { }
