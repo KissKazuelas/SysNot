@@ -36,7 +36,8 @@ const firebaseConfig = {
   ],
   exports: [
     MenuComponent,
-    MenuUserComponent
+    MenuUserComponent,
+    NavHomeComponent
   ]
 })
 export class SharedModule {
