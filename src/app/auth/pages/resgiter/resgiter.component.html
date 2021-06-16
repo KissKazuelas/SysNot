@@ -62,6 +62,23 @@
 										<p-radioButton class="text-layout" name="type" label="Email" value="email" formControlName="type"></p-radioButton>
 									</div>
 								</div>
+								<div  class="p-field p-col-12" id="recaptcha-container">
+								</div>
 			<button pButton label="Registrar" type="submit"> </button>			   
     </form>
 </p-card>
+
+<p-dialog [(visible)]="alertVisible"  [style]="{width: '50vw' }">
+	<ng-template pTemplate="header">
+        Ingresa codigo que recibió en su smartphone:
+	</ng-template>
+	<form (ngSubmit)="verificarCode()">
+		<input class="p-inputtext"
+				placeholder="Código"
+				type="text" 
+				pInputText
+				[(ngModel)]="codeVerification"
+				name="code"> 
+			<button pButton type="submit" >Enviar</button>
+	</form>
+</p-dialog>

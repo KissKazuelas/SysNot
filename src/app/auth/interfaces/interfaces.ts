@@ -7,6 +7,7 @@ export interface UserElement {
     email:        string;
     phone:        string;
     role:         string;
+    UID?:          string;
     firebaseAuth?: boolean;
     enabled?:      boolean;
 }
@@ -25,3 +26,11 @@ export interface WriteTime {
     _nanoseconds: number;
 }
 
+export interface UID {
+    UID: string;
+}
+export interface SuccesLogin {
+    role:  string;
+    token: string;
+    ok:    boolean;
+}
