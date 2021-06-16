@@ -16,20 +16,16 @@ body{
     height: 260px;
     background-size: cover;
 }
-.Contenido {
-    box-sizing:border-box;
-}
+
 
 .Contenido{
     height: 1100px;
-    padding: 40px;
+    padding: 40px; 
+     box-sizing:border-box;
+     color: white;
 }
 
-.pie-pagina{
-    width: 100%;
-    background-color:darkcyan;
-    height: 260px;
-}
+
 
 @media screen and (max-width: 900px) {
     .Contenido{
