@@ -1,0 +1,7 @@
+<form (ngSubmit)="enviarSms()">
+  <label for="telefono">{{labelStatus}}</label>
+  <input id="telefono" [(ngModel)]="codigoFormulario"  type="text" name="phone">
+  <div id="recaptcha-container">
+  </div>
+  <h1>{{uid}}</h1>
+</form>

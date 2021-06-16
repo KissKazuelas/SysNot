@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListadoUserComponent } from './pages/listado-user/listado-user.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { ListadoClientesComponent } from './pages/listado-clientes/listado-clientes.component';
+import {AddClienteTelefonoComponent} from './pages/add-cliente-telefono/add-cliente-telefono.component';
 
 const routes: Routes = [{
   path: '',
@@ -20,7 +21,7 @@ const routes: Routes = [{
     //USUARIOS
     //Agregar
     { path: 'agregarUsuario', component: AddUserComponent },
-    //Editar: 
+    //Editar:
     { path: 'editarUsuario/:id', component: AddUserComponent },
     //Ver Usuarios:
     { path: 'listadoUsuarios', component: ListadoUserComponent },
@@ -38,8 +39,9 @@ const routes: Routes = [{
     { path: 'editarCliente/:id', component: AddClienteComponent },
     //Ver Clientes
     { path: 'listadoClientes', component: ListadoClientesComponent },
-    
+
     { path: 'agregarTramite', component: AddTramiteComponent },
+    { path: 'agregarUsuarioPhone', component: AddClienteTelefonoComponent },
     { path: ':id', component: VerAsuntoComponent },
     { path: '**', redirectTo: 'dashboard' }
   ]
@@ -49,6 +51,6 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { 
-  
+export class AdminRoutingModule {
+
 }
