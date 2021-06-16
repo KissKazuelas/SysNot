@@ -20,7 +20,6 @@ export class AddUserComponent implements OnInit {
   })
     
 
-
   usuario: UserElement = {
     name: "",
     email: "",
@@ -42,12 +41,13 @@ export class AddUserComponent implements OnInit {
     if(errors?.required){
       return 'Telefono obligatorio';
     }else if( errors?.pattern){
-      return 'El telefono debe ser contener solo números';
+      return 'El telefono debe contener solo números';
     }else if(errors?.minlength){
       return 'Telefono demasiado corto';
     }
     return '';
   }
+
 
   msgs1!: Message[];
   constructor(private fb : FormBuilder,
