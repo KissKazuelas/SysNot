@@ -7,6 +7,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import {UiElementsModule} from '../ui-elements/ui-elements.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +16,11 @@ import { SharedModule } from '../shared/shared.module';
     FaqComponent
   ],
   imports: [
-    CommonModule, 
-    FormsModule, 
+    CommonModule,
+    FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    UiElementsModule
   ]
 })
 export class HomeModule { }
