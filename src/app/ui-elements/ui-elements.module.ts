@@ -10,8 +10,12 @@ import {ButtonModule} from 'primeng/button';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+
+import {TabMenuModule} from 'primeng/tabmenu';
 import {DialogModule} from 'primeng/dialog';
+
 import {MultiSelectModule} from 'primeng/multiselect';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -28,7 +32,9 @@ import {MultiSelectModule} from 'primeng/multiselect';
     MessagesModule,
     MessageModule,
     DialogModule,
-    MultiSelectModule
+    MultiSelectModule,
+    TabMenuModule,
+    DialogModule
   ]
 })
 export class UiElementsModule { }

@@ -7,7 +7,7 @@ export class EnlaceService {
 
   constructor() { }
 
-  enlazar(){
+  leer(){
     
   }
 }
