@@ -15,7 +15,10 @@ import { SharedModule } from '../shared/shared.module';
     FaqComponent
   ],
   imports: [
-    CommonModule, FormsModule, ReactiveFormsModule, SharedModule
+    CommonModule, 
+    FormsModule, 
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class HomeModule { }

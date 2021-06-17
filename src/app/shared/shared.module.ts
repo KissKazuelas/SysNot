@@ -5,8 +5,9 @@ import { NavHomeComponent } from './nav-home/nav-home.component';
 
 import { MenuComponent } from './menu/menu.component';
 import { UiElementsModule } from '../ui-elements/ui-elements.module';
-import { MenuUserComponent } from './menu-user/menu-user.component';
+import { FooterComponent } from './footer/footer.component';
 
+import { MenuUserComponent } from './menu-user/menu-user.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -26,7 +27,8 @@ const firebaseConfig = {
   declarations: [
     NavHomeComponent,
     MenuComponent,
-    MenuUserComponent
+    FooterComponent,
+    MenuUserComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,8 @@ const firebaseConfig = {
   ],
   exports: [
     MenuComponent,
+    NavHomeComponent,
+    FooterComponent,
     MenuUserComponent,
     NavHomeComponent
   ]
