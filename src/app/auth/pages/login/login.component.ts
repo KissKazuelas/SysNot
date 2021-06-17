@@ -106,9 +106,14 @@ export class LoginComponent implements OnInit {
             this.authService.login({UID: `${fbResp.user?.uid}`})
             .subscribe(
               authResp =>{
-                localStorage.setItem('tokenUser',authResp.token);
-                this.fireAuth.user.subscribe(console.log)
-                this.router.navigate(['./user']);
+                console.log('Rol usuer log  ' + authResp.role);
+          localStorage.setItem('tokenUser',authResp.token);
+          this.fireAuth.user.subscribe(console.log);
+          if(authResp.role==="USER"){
+            this.router.navigate(['./user']);
+          }else if(authResp.role==="ADMIN"){
+            this.router.navigate(['./admin']);
+          }
               }
             )
           }
@@ -139,11 +144,17 @@ verificarCode(){
     this.usuario.UID= result.user?.uid;
     this.authService.login({UID: `${this.usuario.UID}`})
         .subscribe(resp=>{
+          console.log('Rol usuer log' + resp.role);
           localStorage.setItem('tokenUser',resp.token);
           this.fireAuth.user.subscribe(console.log);
-          this.router.navigate(['./user']);
+          if(resp.role==="USER"){
+            this.router.navigate(['./user']);
+          }else if(resp.role==="ADMIN"){
+            this.router.navigate(['./admin']);
+          }
         },error => {
       this.fireAuth.signOut().then(
+        erro => {this.router.navigate(['./home'])}
       );
     });
     // TE RETORNA EL USUARIO QUE SE LOGEO / CREO
@@ -157,5 +168,5 @@ verificarCode(){
   })
 }
 
-
+   
 }

@@ -11,6 +11,7 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {DialogModule} from 'primeng/dialog';
+import {MultiSelectModule} from 'primeng/multiselect';
 @NgModule({
   declarations: [],
   imports: [
@@ -26,7 +27,8 @@ import {DialogModule} from 'primeng/dialog';
     ButtonModule,
     MessagesModule,
     MessageModule,
-    DialogModule
+    DialogModule,
+    MultiSelectModule
   ]
 })
 export class UiElementsModule { }
