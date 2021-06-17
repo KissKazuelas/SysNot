@@ -16,7 +16,20 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
 import { ListadoUserComponent } from './pages/listado-user/listado-user.component';
 import { ListadoClientesComponent } from './pages/listado-clientes/listado-clientes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddClienteTelefonoComponent } from './pages/add-cliente-telefono/add-cliente-telefono.component';
 
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDUgq63WqudGUS1CqHfLRvEb2ogj6sV9KA",
+  authDomain: "proyectonotaria.firebaseapp.com",
+  projectId: "proyectonotaria",
+  storageBucket: "proyectonotaria.appspot.com",
+  messagingSenderId: "725211129961",
+  appId: "1:725211129961:web:b2cdf14ef5cf50206e9af8",
+  measurementId: "G-ES40Q9CJTD"
+};
 
 @NgModule({
   declarations: [
@@ -30,7 +43,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VerAsuntoComponent,
     AddUserComponent,
     ListadoUserComponent,
-    ListadoClientesComponent
+    ListadoClientesComponent,
+    AddClienteTelefonoComponent
   ],
   imports: [
     CommonModule,
@@ -38,10 +52,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UiElementsModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   exports:[
     ListadoUserComponent
   ]
 })
-export class AdminModule { }
+export class AdminModule {
+
+}
