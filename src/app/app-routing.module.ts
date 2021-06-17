@@ -27,15 +27,15 @@ const routes: Routes = [
     component: ContactComponent,
   },
   {
-    path: 'FAQ',
+    path: 'faq',
     component: FaqComponent,
   },
   {
     path: '**',
     redirectTo: ''
   }
-  
-  
+
+
 ];
 
 @NgModule({
