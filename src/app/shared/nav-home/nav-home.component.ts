@@ -11,26 +11,23 @@ export class NavHomeComponent implements OnInit {
   status:boolean=true;
   @Input()texto:string[]=[];
   aux:string='';
+  x:number=0
   
   constructor() { }
 
   ngOnInit() {
-    console.log(this.texto);
   }
 
   reproducir(){
     speechSynthesis.cancel();
-    console.log(this.texto);
-    for(let i=0;i<16;){
-      console.log(i);
-      this.speech.text=this.texto[i];
-      this.speech.volume = 1;
-      this.speech.rate = 1;
-      this.speech.pitch = 1;
-      this.speech.lang = 'es';
-      speechSynthesis.speak(this.speech);
-      i+1;
-    }
+    this.speech.volume = 1;
+    this.speech.rate = 1;
+    this.speech.pitch = 1;
+    this.speech.lang = 'es';
+    this.speech.text=this.texto[0];
+    speechSynthesis.speak(this.speech);
+    this.speech.text=this.texto[1];
+    speechSynthesis.speak(this.speech);
     /*this.speech.text=this.texto;
     this.speech.volume = 1;
     this.speech.rate = 1;
@@ -40,6 +37,7 @@ export class NavHomeComponent implements OnInit {
   }
 
   pausar(){
+    //this.x=1;
     speechSynthesis.pause();
   }
 

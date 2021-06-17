@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactComponent } from '../contact/contact.component';
 
 @Component({
   selector: 'app-faq',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class FaqComponent implements OnInit {
 
   text:string[]=[];
-  //speech = new SpeechSynthesisUtterance();
+  aux:string='';
+  aux2:string='';
+  enviar:string[]=[];
 
   constructor() { 
     
@@ -31,6 +34,19 @@ export class FaqComponent implements OnInit {
     this.text[13]=' El testador debe manifestarle al Notario cual es su voluntad, es decir a quien o a quienes quiere que pasen sus bienes cuando muera; el Notario, después de escucharlo y aconsejarlo, redactará el testamento en una escritura, le dará lectura en voz alta ante el testador y enseguida será firmado; con éste sencillo procedimiento quedará otorgado su testamento sin necesidad de hacer otro trámite ni de firmar ningún otro documento.'
     this.text[14]=' ¿Cuánto cuesta el testamento ante Notario?.'
     this.text[15]=' El testamento, contra lo que mucha gente piensa, tiene un costo sumamente bajo, sobre todo si se le compara con los gastos de un juicio intestado.'
+    for(let i=0;i<8;i++){
+      this.aux += this.text[i];
+    }
+
+    for(let i=8;i<16;i++){
+      this.aux2 += this.text[i];
+    }
+
+    this.enviar[0]=this.aux;
+    this.enviar[1]=this.aux2;
+
+    console.log(this.aux);
+    console.log(this.aux2);
   }
 
 }
