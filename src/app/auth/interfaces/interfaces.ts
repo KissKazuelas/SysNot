@@ -34,3 +34,7 @@ export interface SuccesLogin {
     token: string;
     ok:    boolean;
 }
+
+export interface Rol{
+    role: string;
+}

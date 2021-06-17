@@ -18,11 +18,6 @@ export class MenuComponent implements OnInit {
               label: 'Usuarios',
               icon: 'pi pi-users',
               items: [{
-                      label: 'Nuevo', 
-                      icon: 'pi pi-user-plus',
-                      routerLink: 'agregarUsuario',
-                      },
-                      {
                         label: 'Ver Ususarios',
                         icon: 'pi pi-search',
                         routerLink: 'listadoUsuarios',
@@ -52,6 +47,7 @@ export class MenuComponent implements OnInit {
               {
                 label:"Nuevo",
                 icon: "pi pi-plus-circle",
+                routerLink: 'agregarTramite'
               },
               {
                 label: "Agregar Tipo de Asunto:",

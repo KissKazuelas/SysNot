@@ -14,6 +14,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {DialogModule} from 'primeng/dialog';
 
+import {MultiSelectModule} from 'primeng/multiselect';
 
 @NgModule({
   declarations: [],
@@ -30,6 +31,8 @@ import {DialogModule} from 'primeng/dialog';
     ButtonModule,
     MessagesModule,
     MessageModule,
+    DialogModule,
+    MultiSelectModule,
     TabMenuModule,
     DialogModule
   ]

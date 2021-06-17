@@ -14,10 +14,19 @@ export class ListadoUserComponent implements OnInit {
   constructor(private adminService : AdminServiceService) { }
 
   ngOnInit(): void {
+    this.getUsers();
+  }
+
+
+  getUsers(){
     this.adminService.getUsers()
     .subscribe(resp=> { console.log(resp); 
-      
       this.usuarios = resp});
+  }
+
+  borrarUser(uid :string){
+    this.adminService.deleteUser(uid)
+    .subscribe(resp => {this.getUsers()});
   }
 
 }

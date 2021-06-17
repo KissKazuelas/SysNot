@@ -41,7 +41,6 @@ export class ResgiterComponent implements OnInit {
       measurementId: "G-ES40Q9CJTD"
     });
 
-
     this.windowRef = this.win.windowRef; // REFERENCIA A EL OBJETO WINDOW
     // CREAMOS UNA INSTANCIA DE CAPTCHA EN EL OBJETO WINDOW
     this.windowRef.recaptchaVerifier = new firebase.default.auth.RecaptchaVerifier('recaptcha-container');
