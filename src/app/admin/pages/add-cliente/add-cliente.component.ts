@@ -1,7 +1,11 @@
+import {Message,MessageService} from 'primeng/api';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ClienteInterface } from '../../interfaces/interfaces';
 import { AdminServiceService } from '../../services/admin-service.service';
+import { of, pipe } from 'rxjs';
+import { delay, tap, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-cliente',
@@ -10,11 +14,13 @@ import { AdminServiceService } from '../../services/admin-service.service';
 })
 export class AddClienteComponent implements OnInit {
 
-  
+  msgs1: Message[] = [];
+
 
   constructor(
     private fb : FormBuilder,
-    private adminService : AdminServiceService
+    private adminService : AdminServiceService,
+    private router: Router
   ) { }
 
   miFormulario : FormGroup = this.fb.group({
@@ -28,8 +34,9 @@ export class AddClienteComponent implements OnInit {
     tipo: "",
     telefono: "",
   }
-
+  verMensaje : boolean = false;
   ngOnInit(): void {
+
   }
   get nameErrorMsg() :string{
     const errors = this.miFormulario.get('nombre')?.errors;
@@ -57,12 +64,25 @@ export class AddClienteComponent implements OnInit {
             && this.miFormulario.controls[campo].touched;
   }
 
+  setNotError(){}
+
   submitForm(){
     this.miFormulario.markAllAsTouched();
     if(this.miFormulario.valid){    
       this.cliente = this.miFormulario.value;
       this.adminService.addCliente(this.cliente)
-      .subscribe(console.log);
+      .pipe(
+        tap( val => {
+          this.msgs1 = [
+          {severity:'success', summary:'Success', detail:'Cliente creado con exito'},];
+          this.verMensaje = true;
+        }),
+        catchError((asa) =>  of('Operacion no  exitosa') ),
+        delay(2000)
+      )
+      .subscribe(resp=>{
+        this.router.navigate(['./admin']);
+      });
     }
   }
   

@@ -1,1 +1,41 @@
-<p>dashboard-admin works!</p>
+
+	<h1 class="text-layout">Tramites</h1>
+	
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+    	<button routerLink="../agregarTramite"  pButton label="New"  icon="pi pi-plus"></button>	
+		
+	</div>
+    
+    <div class="p-toolbar-group-right">
+		<p-button icon="pi pi-search"></p-button>
+    </div>
+</p-toolbar>
+<div *ngIf="!tramites">
+	<p-progressSpinner [style]="{width: '100px', height: '100px'}" styleClass="custom-spinner" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+</div>
+<div *ngIf="tramites">
+	<div  class="p-container p-m-4" *ngFor="let tramite of tramites">
+		<p-card class="" >
+				<h4>Nombre: {{tramite.data.name}}</h4>
+				<h5 *ngIf="abogados && getAbodadoPorId(tramite.data.abogadoUID)">Encargado: {{getAbodadoPorId(tramite.data.abogadoUID)}} </h5>
+				<h5 *ngIf="!getAbodadoPorId(tramite.data.abogadoUID)">Encargado inavilitado. </h5>
+				<h5 *ngIf="true">Estatus: {{tramite.data.status ? "Activo" : "Finalizado"}} </h5>
+				<small>Fecha de inicio: {{tramite.data.initDate}} </small>
+				<h5>Ultimo movimiento: </h5>
+				<input pInputText readonly type="text" class="p-inputtext p-col-12" [value]="tramite.data.ultimoMovimiento">
+			<ng-template pTemplate="footer">
+				<p-button (onClick)="showQr(tramite.id)" label="Generar QR" icon="pi pi-check"></p-button>
+			</ng-template>
+		</p-card>
+		
+	</div>
+</div>
+<p-dialog header="Consultar tramite:" [(visible)]="displayQr">
+	<ngx-qrcode [elementType]="elementType"
+						[value]="getValue(idTramiteQr)"
+						[errorCorrectionLevel]="errorCorrectionLevel">
+	</ngx-qrcode>
+</p-dialog>
+
+	

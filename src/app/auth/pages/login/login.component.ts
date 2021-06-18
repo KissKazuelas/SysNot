@@ -106,7 +106,6 @@ export class LoginComponent implements OnInit {
             this.authService.login({UID: `${fbResp.user?.uid}`})
             .subscribe(
               authResp =>{
-                console.log('Rol usuer log  ' + authResp.role);
           localStorage.setItem('tokenUser',authResp.token);
           this.fireAuth.user.subscribe(console.log);
           if(authResp.role==="USER"){

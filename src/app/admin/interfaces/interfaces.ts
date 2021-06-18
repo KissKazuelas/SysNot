@@ -58,3 +58,25 @@ export interface Tramite {
     idCliente: string;
     UIDAbogado: string;
 }
+
+export interface TramitesApi {
+    id:   string;
+    data: TramiteApi;
+}
+
+export interface TramiteApi {
+    status:           boolean;
+    name:             string;
+    ultimoMovimiento: string;
+    abogadoUID:       string;
+    initDate:         string;
+    clientId:         string;
+}
+export interface TramiteStatus{
+    initDate:         string;
+    clientId:         string;
+    status:           boolean;
+    ultimoMovimiento: string;
+    name:             string;
+    abogadoUID:       string;
+}
