@@ -1,10 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li>
+          <img src="../../../assets/Logo.png" alt="" width="55px" height="55px">
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink='/home'>Home <span class="sr-only">(current)</span></a>
         </li>
@@ -12,7 +15,7 @@
           <a class="nav-link" routerLink='/nosotros'>Nosotros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink='/faq'>Preguntas Frecuentes</a>
+          <a class="nav-link" routerLink='/FAQ'>Preguntas Frecuentes</a>
         </li>
       </ul>
       <button type="button" class="btn btn-outline-dark nav-item" (click)="reproducir()"><i class="fas fa-play"></i></button>
