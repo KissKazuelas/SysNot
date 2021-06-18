@@ -20,6 +20,10 @@ import { AddClienteTelefonoComponent } from './pages/add-cliente-telefono/add-cl
 
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDUgq63WqudGUS1CqHfLRvEb2ogj6sV9KA",
@@ -44,7 +48,8 @@ const firebaseConfig = {
     AddUserComponent,
     ListadoUserComponent,
     ListadoClientesComponent,
-    AddClienteTelefonoComponent
+    AddClienteTelefonoComponent,
+    EstadisticasComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +59,8 @@ const firebaseConfig = {
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgxQRCodeModule,
   ],
   exports:[
     ListadoUserComponent

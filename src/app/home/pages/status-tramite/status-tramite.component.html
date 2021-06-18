@@ -1,0 +1,18 @@
+
+	<h1 class="text-layout">Consulta de tramite:</h1>
+	<div *ngIf="!tramite">
+		<p-progressSpinner [style]="{width: '100px', height: '100px'}" styleClass="custom-spinner" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+	</div>
+	<div *ngIf="tramite">
+		 <div  class=" container p-m-4">
+			<p-card class="p-col-2 p-mr-2">
+				
+					
+						<h4>Nombre: {{tramite.name}}</h4>
+					<h5>Encargado: {{getAbodadoPorId(tramite.abogadoUID)}} </h5>
+					<h5>Etapa de tramite: {{tramite.ultimoMovimiento}}  </h5>
+					<pre> Estatus: {{tramite.ultimoMovimiento ? 'En proceso' : 'Terminado'}} </pre>
+			</p-card>
+		</div>
+	</div>
+		

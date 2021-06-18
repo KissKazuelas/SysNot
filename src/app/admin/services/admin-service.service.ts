@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User, SuccesAddUser, UserElement, DeleteStatus, ClienteInterface, SuccesAddClient, ClienteApi } from '../interfaces/interfaces';
+import { User, SuccesAddUser, UserElement, DeleteStatus, ClienteInterface, SuccesAddClient, ClienteApi, TramitesApi } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +61,16 @@ export class AdminServiceService{
   let options = { headers: headers };
     return this.http.post<any>('https://notariaapirest.herokuapp.com/api/notaria/tramite',tramite,options);
   }
+
+
+  getTramites(): Observable <TramitesApi[]>{
+    this.token = localStorage.getItem('tokenUser'); 
+   
+    let headers: HttpHeaders = new HttpHeaders({
+      'authToken': this.token || ""});
+    return this.http.get<TramitesApi[]>(`https://notariaapirest.herokuapp.com/api/notaria/tramite`,{headers: headers});
+  }
+
 
 }
 

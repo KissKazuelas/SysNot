@@ -11,6 +11,7 @@ import { ListadoUserComponent } from './pages/listado-user/listado-user.componen
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { ListadoClientesComponent } from './pages/listado-clientes/listado-clientes.component';
 import {AddClienteTelefonoComponent} from './pages/add-cliente-telefono/add-cliente-telefono.component';
+import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
 
 const routes: Routes = [{
   path: '',
@@ -42,6 +43,7 @@ const routes: Routes = [{
 
     { path: 'agregarTramite', component: AddTramiteComponent },
     { path: 'agregarUsuarioPhone', component: AddClienteTelefonoComponent },
+    { path: 'estadisticas', component: EstadisticasComponent },
     { path: ':id', component: VerAsuntoComponent },
     { path: '**', redirectTo: 'dashboard' }
   ]

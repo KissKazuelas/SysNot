@@ -7,11 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from '../app/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
+
+import { StatusTramiteComponent } from './home/pages/status-tramite/status-tramite.component';
+
 import {UiElementsModule} from './ui-elements/ui-elements.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

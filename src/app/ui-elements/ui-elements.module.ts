@@ -17,6 +17,8 @@ import {DialogModule} from 'primeng/dialog';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {OrderListModule} from 'primeng/orderlist';
 import {CheckboxModule} from 'primeng/checkbox';
+import {ChartModule} from 'primeng/chart';
+
 
 @NgModule({
   declarations: [],
@@ -35,10 +37,11 @@ import {CheckboxModule} from 'primeng/checkbox';
     MessageModule,
     DialogModule,
     MultiSelectModule,
+    ToolbarModule,
+    CheckboxModule,
+    ChartModule,
     TabMenuModule,
-    DialogModule,
     OrderListModule,
-    CheckboxModule
   ]
 })
 export class UiElementsModule { }
