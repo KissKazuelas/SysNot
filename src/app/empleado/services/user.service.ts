@@ -17,7 +17,7 @@ export class UserService {
   constructor(private httpService: HttpClient) { }
 
   getUsers():Observable<User>{
-    this.token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVSUQiOiJzajN3anBpaElLVEw5SFBOWXZudXRLdWpMbFUyIiwiaWF0IjoxNjI0MDM0MzYzLCJleHAiOjE2MjQwNDUxNjN9.8CV_GOBFKOPIMAJ2A0qLatr-feYOQbrQfpW_b4Jmvns"; 
+    this.token =  localStorage.getItem('tokenUser') || "";
     let headers = new HttpHeaders();
     headers = headers.append('authToken' ,this.token || "");
     return this.httpService.get<User>(`https://notariaapirest.herokuapp.com/api/user`,{headers: headers});

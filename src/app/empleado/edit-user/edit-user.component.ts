@@ -21,8 +21,8 @@ export class EditUserComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
     name: ['',Validators.required],
-    uid:  [''],
-    phone:[ '',[Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[0-9]*$")]],
+    UID:  [''],
+    phone:[ '',[Validators.required, Validators.minLength(10), Validators.pattern("^[0-9]*$")]],
   })
 
   ngOnInit(): void {
@@ -46,7 +46,9 @@ export class EditUserComponent implements OnInit {
     UID: ""
   };
   submitForm(){
+    this.miFormulario.markAllAsTouched();
     if(this.miFormulario.valid){
+      this.user.name = this.miFormulario.get('name')?.value || "";
       this.userService.updateUser(this.user)
       .subscribe(resp =>{
         this.msgs1 = [
