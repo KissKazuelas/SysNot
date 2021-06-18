@@ -1,4 +1,4 @@
-<p-orderList [value]="tramites" [(selection)]="tramiteSeleccionado" class="">
+<p-orderList [value]="tramites" [dragdrop]="true" [(selection)]="tramiteSeleccionado" class="">
   <ng-template let-tramite pTemplate="item">
     <div class="contenedorCarta">
       <p-card>
