@@ -18,22 +18,7 @@ export class EstadisticasComponent implements OnInit {
   data: any;
     
     constructor(private authService : AdminServiceService) {
-      this.data = {
-        labels: ['Trámites concluidos','Trámites en proceso'],
-        datasets: [
-            {
-                data: [300, 50],
-                backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB"
-                ],
-                hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ]
-            }]    
-        }
+      
   }
   ngOnInit(): void {
     
@@ -42,13 +27,27 @@ export class EstadisticasComponent implements OnInit {
       resp => {
         this.tramitesActivos = resp.filter( tramite => tramite.data.status === true).length
         this.tramitesTerminados = resp.length - this.tramitesActivos;
-        console.log(this.tramitesActivos);
-        console.log(this.tramitesTerminados);
+        this.generarInfo();
       }
     )
-
   }
-
-
+  generarInfo(){
+    this.data = {
+      labels: ['Trámites concluidos','Trámites en proceso'],
+      datasets: [
+          {
+              data: [this.tramitesTerminados, this.tramitesActivos],
+              backgroundColor: [
+                  "#FF6384",
+                  "#36A2EB"
+              ],
+              hoverBackgroundColor: [
+                  "#FF6384",
+                  "#36A2EB",
+                  "#FFCE56"
+              ]
+          }]    
+      }
+  }
 
 }
