@@ -10,10 +10,15 @@ import {ButtonModule} from 'primeng/button';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+
+import {TabMenuModule} from 'primeng/tabmenu';
 import {DialogModule} from 'primeng/dialog';
+
 import {MultiSelectModule} from 'primeng/multiselect';
+
 import {CheckboxModule} from 'primeng/checkbox';
 import {ChartModule} from 'primeng/chart';
+
 
 @NgModule({
   declarations: [],
@@ -35,7 +40,7 @@ import {ChartModule} from 'primeng/chart';
     ToolbarModule,
     CheckboxModule,
     ChartModule,
-    
+    TabMenuModule,
   ]
 })
 export class UiElementsModule { }
