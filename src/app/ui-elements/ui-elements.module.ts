@@ -12,6 +12,9 @@ import {MessageModule} from 'primeng/message';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {DialogModule} from 'primeng/dialog';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {CheckboxModule} from 'primeng/checkbox';
+import {ChartModule} from 'primeng/chart';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -28,7 +31,11 @@ import {MultiSelectModule} from 'primeng/multiselect';
     MessagesModule,
     MessageModule,
     DialogModule,
-    MultiSelectModule
+    MultiSelectModule,
+    ToolbarModule,
+    CheckboxModule,
+    ChartModule,
+    
   ]
 })
 export class UiElementsModule { }

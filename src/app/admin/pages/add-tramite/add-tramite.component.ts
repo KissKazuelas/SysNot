@@ -4,6 +4,10 @@ import { AdminServiceService } from '../../services/admin-service.service';
 import { UserElement, Tramite, ClienteApi } from '../../interfaces/interfaces';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UID } from '../../../auth/interfaces/interfaces';
+import { Message } from 'primeng/api';
+import { of, pipe } from 'rxjs';
+import { delay, tap, catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-tramite',
@@ -24,10 +28,13 @@ export class AddTramiteComponent implements OnInit {
     UIDAbogado: "string",
   }; 
 
+  msgs1: Message[] = [];
+  verMensaje : boolean = false;
 
 
   constructor(private adminService : AdminServiceService,
-              private fb : FormBuilder) { }
+              private fb : FormBuilder,
+              private router: Router) { }
 miFormulario : FormGroup = this.fb.group({
     nombreTramite: ['',[Validators.required]],
     idCliente:  [,[Validators.required, Validators.maxLength(1)]],
@@ -81,13 +88,22 @@ miFormulario : FormGroup = this.fb.group({
   submitForm(){
     this.miFormulario.markAllAsTouched();
     if(this.miFormulario.valid){    
-      console.log(this.userSelect);
       this.tramite.UIDAbogado= this.userSelect[0].UID;
       this.tramite.idCliente= this.clientSelect[0].id;
       this.tramite.nombreTramite= this.miFormulario.get('nombreTramite')?.value;
-     console.log(this.tramite);
      this.adminService.addTramite(this.tramite)
-     .subscribe(console.log)
+      .pipe(
+        tap( val => {
+          this.msgs1 = [
+          {severity:'success', summary:'Success', detail:'Tramite creado con exito'},];
+          this.verMensaje = true;
+        }),
+        catchError((asa) =>  of('Operacion no  exitosa') ),
+        delay(2000)
+      )
+      .subscribe(resp=>{
+        this.router.navigate(['./admin']);
+      });
      }
   }
 

@@ -6,6 +6,7 @@ import { FaqComponent } from './home/pages/faq/faq.component';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuardAdmin } from './auth/guards/authAdmin.guard';
 import { AuthUserGuard } from './auth/guards/auth-user.guard';
+import { StatusTramiteComponent } from './home/pages/status-tramite/status-tramite.component';
 
 const routes: Routes = [
   {
@@ -37,9 +38,13 @@ const routes: Routes = [
     component: FaqComponent,
   },
   {
+    path: 'statusTramite/:id',
+    component: StatusTramiteComponent,
+  },
+  {
     path: '**',
     redirectTo: ''
-  }
+  },
   
   
 ];
