@@ -1,8 +1,8 @@
-<h1 class="text-layout">Registrar Cliente</h1>
 <p-messages [(value)]="msgs1" [enableService]="verMensaje"></p-messages>
-<div class="p-container">
-	<p-card [style]="{'width': '100%', 'margin-bottom': '2em'}">
-		<form class="p-fluid p-formgrid p-grid" [formGroup] ="miFormulario" (ngSubmit)="submitForm()">
+<div class="p-col-9 p-offset-1">
+	<h2 class="text-layout">Registrar Cliente</h2>
+	<p-card  [style]="{'margin-bottom': '2em'}">
+		<form class=" p-fluid p-formgrid p-grid" [formGroup] ="miFormulario" (ngSubmit)="submitForm()">
 				<div class="p-field p-col-12">
 					<label class="text-layout" for="firstname2">Nombre de cliente:</label>
 						<input class="p-inputtext"
@@ -31,8 +31,10 @@
 												pInputText> 
 										<small *ngIf="campoEsValido('telefono')" id="username2-help" class="p-error"> {{phoneErrorMsg}} </small>
 									</div>	   
-									
-				<button pButton label="Registrar" type="submit"> </button>			   
+				<div class="p-col-4 p-offset-8">
+
+					<button pButton label="Registrar" type="submit"> </button>			   
+				</div>
 		</form>
 	</p-card>
 	

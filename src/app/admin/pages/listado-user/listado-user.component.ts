@@ -15,9 +15,15 @@ export class ListadoUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+    this.cols = [
+      { field: 'name', header: 'Nombre:' },
+      { field: 'email', header: 'Email:' },
+      { field: 'phone', header: 'Telefono:' },
+      { field: 'enable', header: 'Activo:'}
+  ];
   }
 
-
+  cols: any = [];
   getUsers(){
     this.adminService.getUsers()
     .subscribe(resp=> { console.log(resp); 

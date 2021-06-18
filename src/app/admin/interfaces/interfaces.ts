@@ -80,3 +80,9 @@ export interface TramiteStatus{
     name:             string;
     abogadoUID:       string;
 }
+
+export interface UserUpdate {
+    name:  string;
+    UID:   string;
+    phone: string;
+}

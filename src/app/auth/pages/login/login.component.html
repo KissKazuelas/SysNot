@@ -1,59 +1,60 @@
-<h1 class="text-layout">Iniciar sesión</h1>
-
-<p-card [style]="{'width': '35rem', 'margin-bottom': '2em'}">
-    <form class="p-fluid p-formgrid p-grid" [formGroup] ="miFormulario" (ngSubmit)="submitForm()">
-		<div class="p-field p-col-12">
-			<label class="text-layout p-mb-4" for="firstname2">Seleccione autenticación:</label>
-			<div class="p-field p-col">
-				<p-radioButton class="text-layout" name="type" label="Telefono" value="phone" formControlName="type"></p-radioButton>
+<div class="p-col-12 ">
+	<h1 class="text-layout">Iniciar sesión</h1>
+	<p-card [style]="{'width': '95%', 'margin-bottom': '2em'}">
+		<form class="p-fluid p-formgrid p-grid" [formGroup] ="miFormulario" (ngSubmit)="submitForm()">
+			<div class="p-field p-col-12">
+				<label class="text-layout p-mb-4" for="firstname2">Seleccione autenticación:</label>
+				<div class="p-field p-col">
+					<p-radioButton class="text-layout" name="type" label="Telefono" value="phone" formControlName="type"></p-radioButton>
+				</div>
+				<div class="p-field p-col">
+					<p-radioButton class="text-layout" name="type" label="Email" value="email" formControlName="type"></p-radioButton>
+				</div>
 			</div>
-			<div class="p-field p-col">
-				<p-radioButton class="text-layout" name="type" label="Email" value="email" formControlName="type"></p-radioButton>
-			</div>
-		</div>
-								<div  *ngIf="typeAuth === 'email'" class="p-field p-col">
-									<label class="text-layout" for="firstname2">Coreo electronico</label>
-									<input class="p-inputtext"
-											placeholder="Ingresa email"
-										   type="email" 
-											pInputText
-											formControlName="email"> 
-								</div>
-								<div  *ngIf="typeAuth === 'phone'"  class="p-field p-col-6">
-									<label class="text-layout">Telefono</label>
-									<input class="p-inputtext"
-											placeholder="Ingresa número telefónico"
-											type="text" 
-											formControlName="phone"
-											pInputText> 
-								</div>	   
-								<div *ngIf="typeAuth === 'email'" class="p-field p-col-12">
-									<label class="text-layout" >Ingresa contraseña</label>
-									<input class="p-inputtext"
-											placeholder="Password"
-										   type="password" 
-											pInputText
-											formControlName="pass"> 
-
-								</div> 
-								
-								<div  class="p-field p-col-12" id="recaptcha-container">
-								</div>
-			<button pButton label="Iniciar Sesion" type="submit"> </button>			   
-    </form>
-</p-card>
-
-<p-dialog [(visible)]="alertVisible"  [style]="{width: '50vw' }">
-	<ng-template pTemplate="header">
-        Ingresa codigo que recibió en su smartphone:
-	</ng-template>
-	<form (ngSubmit)="verificarCode()">
-		<input class="p-inputtext"
-				placeholder="Código"
-				type="text" 
-				pInputText
-				[(ngModel)]="codeVerification"
-				name="code"> 
-			<button pButton type="submit" >Enviar</button>
-	</form>
-</p-dialog>
+									<div  *ngIf="typeAuth === 'email'" class="p-field p-col-12">
+										<label class="text-layout" for="firstname2">Coreo electronico</label>
+										<input class="p-inputtext"
+												placeholder="Ingresa email"
+											   type="email" 
+												pInputText
+												formControlName="email"> 
+									</div>
+									<div  *ngIf="typeAuth === 'phone'"  class="p-field p-col-12">
+										<label class="text-layout">Telefono</label>
+										<input class="p-inputtext"
+												placeholder="Ingresa número telefónico"
+												type="text" 
+												formControlName="phone"
+												pInputText> 
+									</div>	   
+									<div *ngIf="typeAuth === 'email'" class="p-field p-col-12">
+										<label class="text-layout" >Ingresa contraseña</label>
+										<input class="p-inputtext"
+												placeholder="Password"
+											   type="password" 
+												pInputText
+												formControlName="pass"> 
+	
+									</div> 
+									
+									<div  class="p-field p-col-12" id="recaptcha-container">
+									</div>
+				<button pButton label="Iniciar Sesion" type="submit"> </button>			   
+		</form>
+	</p-card>
+	
+	<p-dialog [(visible)]="alertVisible"  [style]="{width: '50vw' }">
+		<ng-template pTemplate="header">
+			Ingresa codigo que recibió en su smartphone:
+		</ng-template>
+		<form (ngSubmit)="verificarCode()">
+			<input class="p-inputtext"
+					placeholder="Código"
+					type="text" 
+					pInputText
+					[(ngModel)]="codeVerification"
+					name="code"> 
+				<button pButton type="submit" >Enviar</button>
+		</form>
+	</p-dialog>
+</div>

@@ -1,0 +1,32 @@
+
+<p-messages [(value)]="msgs1" [enableService]="verMensaje"></p-messages>
+<div class="p-container p-p-2">
+	
+	<h1 class="text-layout">Editar Usuario</h1>
+
+
+<p-card [style]="{'width': '35rem', 'margin-bottom': '2em'}">
+    <form class="p-fluid p-formgrid p-grid" [formGroup] ="miFormulario" (ngSubmit)="submitForm()">
+		<div  class="p-field p-col-12">
+			<label class="text-layout" for="firstname2">Nombre:</label>
+			<input class="p-inputtext"
+					placeholder="Ingresa email"
+				   type="text" 
+					pInputText
+					formControlName="name"> 
+			<small *ngIf="campoEsValido('name')" id="username2-help" class="p-error">Nombre requerido.</small>
+		</div>
+		<div class="p-field p-col-12">
+			<label class="text-layout">Telefono</label>
+			<input class="p-inputtext"
+					placeholder="Ingresa número telefónico"
+					type="text" 
+					formControlName="phone"
+					pInputText> 
+			<small *ngIf="campoEsValido('phone')" id="username2-help" class="p-error"> {{phoneErrorMsg}} </small>
+		</div>
+			<button pButton label="Iniciar Sesion" type="submit"> </button>			   
+    </form>
+</p-card>
+
+</div>

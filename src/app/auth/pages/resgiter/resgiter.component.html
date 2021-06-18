@@ -1,84 +1,85 @@
-<h1 class="text-layout">Registrar Usuario</h1>
-
-<p-card [style]="{'width': '35rem', 'margin-bottom': '2em'}">
-    <form class="p-fluid p-formgrid p-grid" [formGroup] ="miFormulario" (ngSubmit)="submitForm()">
-            <div class="p-field p-col-12">
-				<label class="text-layout" for="firstname2">Nombre Completo</label>
-					<input class="p-inputtext"
-						   type="text" 
-						   pInputText
-						   placeholder="Nombre de ususario"
-						   formControlName="name"> 
-						   <small *ngIf="campoEsValido('name')" id="username2-help" class="p-error">Usuario Invalido</small>
-			</div>
-			
-								<div  class="p-field p-col">
-									<label class="text-layout" for="firstname2">Coreo electronico</label>
-									<input class="p-inputtext"
-											placeholder="Ingresa email"
-										   type="email" 
-											pInputText
-											formControlName="email"> 
-									<small *ngIf="campoEsValido('email')" id="username2-help" class="p-error">{{emailErrorMsg}}</small>
-								</div>
-								<div class="p-field p-col-6">
-									<label class="text-layout">Telefono</label>
-									<input class="p-inputtext"
-											placeholder="Ingresa número telefónico"
-											type="text" 
-											formControlName="phone"
-											pInputText> 
-									<small *ngIf="campoEsValido('phone')" id="username2-help" class="p-error"> {{phoneErrorMsg}} </small>
-								</div>	   
-								<div  class="p-field p-col-12">
-									<label class="text-layout" >Ingresa contraseña</label>
-									<input class="p-inputtext"
-											placeholder="Password"
-										   type="password" 
-											pInputText
-											formControlName="pass"> 
-									<small *ngIf="campoEsValido('pass')"  class="p-error">
-										La contraseña debe de ser mayor de 6 caracteres.
-									</small>
-								</div>
-								<div class="p-field p-col">
-									<label class="text-layout">Confirme la contraseña</label>
-									<input class="p-inputtext"
-											placeholder="Confirmar"
-											type="password" 
-											formControlName="pass1"
-											pInputText> 
-											<small *ngIf="campoEsValido('pass1')"  class="p-error">
-												Las contraseñas deben de ser iguales
-											</small>								
-								</div>	 
-								<div class="p-field p-col-12">
-									<label class="text-layout p-mb-4" for="firstname2">Seleccione autenticación:</label>
-									
-									<div class="p-field p-col">
-										<p-radioButton class="text-layout" name="type" label="Telefono" value="phone" formControlName="type"></p-radioButton>
+<div class="p-col-10 p-offset-1">
+	<h1 class="text-layout">Registrar Usuario</h1>
+	<p-card [style]="{'margin-bottom': '2em'}">
+		<form class="p-fluid p-formgrid p-grid" [formGroup] ="miFormulario" (ngSubmit)="submitForm()">
+				<div class="p-field p-col-12">
+					<label class="text-layout" for="firstname2">Nombre Completo</label>
+						<input class="p-inputtext"
+							   type="text" 
+							   pInputText
+							   placeholder="Nombre de ususario"
+							   formControlName="name"> 
+							   <small *ngIf="campoEsValido('name')" id="username2-help" class="p-error">Usuario Invalido</small>
+				</div>
+				
+									<div  class="p-field p-col-12">
+										<label class="text-layout" for="firstname2">Coreo electronico</label>
+										<input class="p-inputtext"
+												placeholder="Ingresa email"
+											   type="email" 
+												pInputText
+												formControlName="email"> 
+										<small *ngIf="campoEsValido('email')" id="username2-help" class="p-error">{{emailErrorMsg}}</small>
+									</div>
+									<div class="p-field p-col-12">
+										<label class="text-layout">Telefono</label>
+										<input class="p-inputtext"
+												placeholder="Ingresa número telefónico"
+												type="text" 
+												formControlName="phone"
+												pInputText> 
+										<small *ngIf="campoEsValido('phone')" id="username2-help" class="p-error"> {{phoneErrorMsg}} </small>
+									</div>	   
+									<div  class="p-field p-col-12">
+										<label class="text-layout" >Ingresa contraseña</label>
+										<input class="p-inputtext"
+												placeholder="Password"
+											   type="password" 
+												pInputText
+												formControlName="pass"> 
+										<small *ngIf="campoEsValido('pass')"  class="p-error">
+											La contraseña debe de ser mayor de 6 caracteres.
+										</small>
 									</div>
 									<div class="p-field p-col">
-										<p-radioButton class="text-layout" name="type" label="Email" value="email" formControlName="type"></p-radioButton>
+										<label class="text-layout">Confirme la contraseña</label>
+										<input class="p-inputtext"
+												placeholder="Confirmar"
+												type="password" 
+												formControlName="pass1"
+												pInputText> 
+												<small *ngIf="campoEsValido('pass1')"  class="p-error">
+													Las contraseñas deben de ser iguales
+												</small>								
+									</div>	 
+									<div class="p-field p-col-12">
+										<label class="text-layout p-mb-4" for="firstname2">Seleccione autenticación:</label>
+										
+										<div class="p-field p-col">
+											<p-radioButton class="text-layout" name="type" label="Telefono" value="phone" formControlName="type"></p-radioButton>
+										</div>
+										<div class="p-field p-col">
+											<p-radioButton class="text-layout" name="type" label="Email" value="email" formControlName="type"></p-radioButton>
+										</div>
 									</div>
-								</div>
-								<div  class="p-field p-col-12" id="recaptcha-container">
-								</div>
-			<button pButton label="Registrar" type="submit"> </button>			   
-    </form>
-</p-card>
-
-<p-dialog [(visible)]="alertVisible"  [style]="{width: '50vw' }">
-	<ng-template pTemplate="header">
-        Ingresa codigo que recibió en su smartphone:
-	</ng-template>
-	<form (ngSubmit)="verificarCode()">
-		<input class="p-inputtext"
-				placeholder="Código"
-				type="text" 
-				pInputText
-				[(ngModel)]="codeVerification"
-				name="code"> 
-			<button pButton type="submit" >Enviar</button>
-	</form>
-</p-dialog>
+									<div  class="p-field p-col-5" id="recaptcha-container">
+									</div>
+				<button pButton label="Registrar" type="submit"> </button>			   
+		</form>
+	</p-card>
+	
+	<p-dialog [(visible)]="alertVisible"  [style]="{width: '50vw' }">
+		<ng-template pTemplate="header">
+			Ingresa codigo que recibió en su smartphone:
+		</ng-template>
+		<form (ngSubmit)="verificarCode()">
+			<input class="p-inputtext"
+					placeholder="Código"
+					type="text" 
+					pInputText
+					[(ngModel)]="codeVerification"
+					name="code"> 
+				<button pButton type="submit" >Enviar</button>
+		</form>
+	</p-dialog>
+</div>
