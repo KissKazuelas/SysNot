@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
 import {TramiteInterface} from '../Interfaces/tramite.interface';
 import {Tramite} from '../../admin/interfaces/interfaces';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   estadoTramite: boolean = false;
   ultimoMovimiento: string = "";
 
-  constructor(private empleadoService: UserService) { }
+  constructor(private empleadoService: UserService,private fireAuth:AngularFireAuth) { }
 
   ngOnInit(): void {
     this.updateArrayWithService();
@@ -25,17 +26,21 @@ export class DashboardComponent implements OnInit {
 
   updateArrayWithService():void{
     this.empleadoService.getTramites().subscribe((result)=>{
-      this.tramites = [];
-      result.forEach(result=>{
-        this.tramites.push(result);
-      });
+      this.fireAuth.user.subscribe((user)=>{
+        this.tramites = [];
+        console.log(user?.uid);
+        result.forEach(result=>{
+          if (user?.uid==result.data.abogadoUID){
+            this.tramites.push(result);
+          }
+        });
+      })
     }, (error)=>{
       console.log(error);
     });
   }
 
   actualizarDatos(tramite: TramiteInterface):void{
-    console.log(tramite);
     this.estadoTramite=tramite.data.status;
     this.ultimoMovimiento=tramite.data.ultimoMovimiento;
     this.displayUpdateDialog = true;
@@ -45,7 +50,6 @@ export class DashboardComponent implements OnInit {
   accionActualiza (): void{
     this.empleadoService.updateTramite(this.tramiteActual?.id||"",this.estadoTramite,this.ultimoMovimiento)
       .subscribe((response)=>{
-        console.log(this.tramiteActual?.id||"");
         this.updateArrayWithService();
         this.displayUpdateDialog=false;
       },(error)=>{
