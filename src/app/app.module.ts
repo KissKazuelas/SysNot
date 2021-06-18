@@ -18,6 +18,7 @@ import {UiElementsModule} from './ui-elements/ui-elements.module';
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,

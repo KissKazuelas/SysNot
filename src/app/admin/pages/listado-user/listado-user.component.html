@@ -22,7 +22,7 @@
 							<td> {{usuario.name}} </td>
 							<td> {{usuario.email}} </td>
 							<td> {{usuario.phone}} </td>
-							<td> {{usuario.enabled}} </td>
+							<td> {{usuario.enabled | statusIcon}} </td>
 							<td><button (click)="borrarUser(usuario.UID)" icon="pi pi-trash" pButton></button> </td>
 							
 						</tr>
