@@ -54,7 +54,7 @@ export class DashboardAdminComponent implements OnInit {
   
   //QRCODE
   getValue(id :string){
-    return "https://notariaapirest.herokuapp.com/api/notaria/tramite/" +  id; 
+    return "https://notariaapirest.herokuapp.com/statusTramite/" +  id; 
   }
   elementType= NgxQrcodeElementTypes.URL;
   errorCorrectionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
