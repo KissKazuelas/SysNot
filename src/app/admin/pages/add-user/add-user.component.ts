@@ -9,75 +9,75 @@ import {Message,MessageService} from 'primeng/api';
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css']
 })
-export class AddUserComponent implements OnInit {
+export class AddUserComponent {
 
 
-  miFormulario: FormGroup = this.fb.group({
-    name:['', [Validators.required, Validators.minLength(5)]],
-    email:['', [Validators.required, Validators.min(0),Validators.email]],
-    phone:[ '',[Validators.required, Validators.minLength(7), Validators.pattern("^[0-9]*$")]],
-    role: ['USER',Validators.required]
-  })
+  // miFormulario: FormGroup = this.fb.group({
+  //   name:['', [Validators.required, Validators.minLength(5)]],
+  //   email:['', [Validators.required, Validators.min(0),Validators.email]],
+  //   phone:[ '',[Validators.required, Validators.minLength(7), Validators.pattern("^[0-9]*$")]],
+  //   role: ['USER',Validators.required]
+  // })
 
-  usuario: UserElement = {
-    name: "",
-    email: "",
-    phone: "",
-    role: ""
-  };
+  // usuario: UserElement = {
+  //   name: "",
+  //   email: "",
+  //   phone: "",
+  //   role: ""
+  // };
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
 
-  }
+  // }
 
-  get emailErrorMsg() :string{
-    const errors = this.miFormulario.get('email')?.errors;
-    if(errors?.required){
-      return 'Email obligatorio';
-    }else if( errors?.email){
-      return 'Valor ingresado no tiene formato de correo';
-    }
-    return '';
-  }
-  get phoneErrorMsg() :string{
-    const errors = this.miFormulario.get('phone')?.errors;
-    if(errors?.required){
-      return 'Telefono obligatorio';
-    }else if( errors?.pattern){
-      return 'El telefono debe contener solo números';
-    }else if(errors?.minlength){
-      return 'Telefono demasiado corto';
-    }
-    return '';
-  }
+  // get emailErrorMsg() :string{
+  //   const errors = this.miFormulario.get('email')?.errors;
+  //   if(errors?.required){
+  //     return 'Email obligatorio';
+  //   }else if( errors?.email){
+  //     return 'Valor ingresado no tiene formato de correo';
+  //   }
+  //   return '';
+  // }
+  // get phoneErrorMsg() :string{
+  //   const errors = this.miFormulario.get('phone')?.errors;
+  //   if(errors?.required){
+  //     return 'Telefono obligatorio';
+  //   }else if( errors?.pattern){
+  //     return 'El telefono debe contener solo números';
+  //   }else if(errors?.minlength){
+  //     return 'Telefono demasiado corto';
+  //   }
+  //   return '';
+  // }
 
 
-  msgs1!: Message[];
-  constructor(private fb : FormBuilder,
-              private adminServices : AdminServiceService) { }
+  // msgs1!: Message[];
+  // constructor(private fb : FormBuilder,
+  //             private adminServices : AdminServiceService) { }
 
-  campoEsValido( campo: string ) {
-    return this.miFormulario.controls[campo].errors
-            && this.miFormulario.controls[campo].touched;
-  }
-  submitForm(){
-    this.miFormulario.markAllAsTouched();
-     if(this.miFormulario.valid){
-       console.log("succes");
-       console.log(this.miFormulario.value);
-       this.usuario=this.miFormulario.value;
-       console.log(this.usuario);
-       this.adminServices.addUser(this.usuario)
-       .subscribe(resp=>{
-        this.msgs1 = [
-          {severity:'success', summary:'Success', detail:'Usuario Creado con exito'},
-      ];
-       });
-       this.miFormulario.reset();
-     }else{
-       console.log('no succes');
-       console.log(this.miFormulario);
-     }
-  }
+  // campoEsValido( campo: string ) {
+  //   return this.miFormulario.controls[campo].errors
+  //           && this.miFormulario.controls[campo].touched;
+  // }
+  // submitForm(){
+  //   this.miFormulario.markAllAsTouched();
+  //    if(this.miFormulario.valid){
+  //      console.log("succes");
+  //      console.log(this.miFormulario.value);
+  //      this.usuario=this.miFormulario.value;
+  //      console.log(this.usuario);
+  //      this.adminServices.addUser(this.usuario)
+  //      .subscribe(resp=>{
+  //       this.msgs1 = [
+  //         {severity:'success', summary:'Success', detail:'Usuario Creado con exito'},
+  //     ];
+  //      });
+  //      this.miFormulario.reset();
+  //    }else{
+  //      console.log('no succes');
+  //      console.log(this.miFormulario);
+  //    }
+  // }
 
 }

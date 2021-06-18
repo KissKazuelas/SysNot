@@ -1,0 +1,10 @@
+.contenedorCarta{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.carta{
+  margin-top: 5%;
+}

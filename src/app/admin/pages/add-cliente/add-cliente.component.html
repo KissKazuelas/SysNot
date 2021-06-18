@@ -1,1 +1,39 @@
-<p>add-cliente works!</p>
+<h1 class="text-layout">Registrar Cliente</h1>
+<p-messages [(value)]="msgs1" [enableService]="verMensaje"></p-messages>
+<div class="p-container">
+	<p-card [style]="{'width': '100%', 'margin-bottom': '2em'}">
+		<form class="p-fluid p-formgrid p-grid" [formGroup] ="miFormulario" (ngSubmit)="submitForm()">
+				<div class="p-field p-col-12">
+					<label class="text-layout" for="firstname2">Nombre de cliente:</label>
+						<input class="p-inputtext"
+							   type="text" 
+							   pInputText
+							   placeholder="Nombre de cliente"
+							   formControlName="nombre"> 
+							   <small *ngIf="campoEsValido('nombre')" id="username2-help" class="p-error">{{nameErrorMsg}}</small>
+				</div>
+				
+									<div  class="p-field p-col-12">
+										<label class="text-layout" for="firstname2">Tipo: </label>
+										<input class="p-inputtext"
+												placeholder="Ingrese tipo de Cliente"
+												   type="text" 
+												pInputText
+												formControlName="tipo"> 
+										<small *ngIf="campoEsValido('tipo')" id="username2-help" class="p-error">Tipo de cliente invalido</small>
+									</div>
+									<div class="p-field p-col-12">
+										<label class="text-layout">Telefono</label>
+										<input class="p-inputtext"
+												placeholder="Ingresa número telefónico"
+												type="text" 
+												formControlName="telefono"
+												pInputText> 
+										<small *ngIf="campoEsValido('telefono')" id="username2-help" class="p-error"> {{phoneErrorMsg}} </small>
+									</div>	   
+									
+				<button pButton label="Registrar" type="submit"> </button>			   
+		</form>
+	</p-card>
+	
+</div>

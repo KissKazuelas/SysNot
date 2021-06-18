@@ -1,1 +1,29 @@
-<p>add-tramite works!</p>
+
+<h1 class="text-layout">Registrar nuevo trámite:</h1>
+<p-messages [(value)]="msgs1" [enableService]="verMensaje"></p-messages>
+
+<p-card [style]="{'width': '95%', 'margin-bottom': '2em'}">
+    <form (ngSubmit)="submitForm()" class="p-fluid p-formgrid p-grid" [formGroup]="miFormulario">
+								<div class="p-field p-col-12">
+									<label class="text-layout">Ingrese nombre de trámite</label>
+									<input class="p-inputtext"
+											placeholder="Nombre de trámite"
+											type="text" 
+											formControlName="nombreTramite"
+											pInputText> 
+									<small *ngIf="campoEsValido('nombreTramite')" id="username2-help" class="p-error"> Nombre requerido </small>
+								</div>
+								<div class="p-field p-col-12" *ngIf="usuarios">
+									<label class="text-layout">Seleccione encargado:</label>
+									<p-multiSelect (onChange)="verfificar()" formControlName="UIDAbogado"  [options]="usuarios" [(ngModel)]="userSelect" name="usuario" [maxSelectedLabels]="3" defaultLabel="Seleccione un encargado"  optionLabel="name" selectedItemsLabel="{0} items selected"></p-multiSelect>		
+									<small *ngIf="campoEsValido('UIDAbogado')" class="p-error">{{encargadoMsgError}}</small>
+								</div>	
+								<div class="p-field p-col-12" *ngIf="clientes">
+									<label class="text-layout">Seleccione cliente:</label>
+									<p-multiSelect (onChange)="verfificar()" formControlName="idCliente"  [options]="clientes" [(ngModel)]="clientSelect" name="cliente" [maxSelectedLabels]="3" defaultLabel="Seleccione un cliente"  optionLabel="data.nombre" selectedItemsLabel="{0} items selected"></p-multiSelect>		
+									<small *ngIf="campoEsValido('idCliente')"  class="p-error">{{eclienteMsgError}}</small>
+								</div>	
+
+			<button pButton label="Registrar" type="submit"> </button>			   
+    </form>
+</p-card>

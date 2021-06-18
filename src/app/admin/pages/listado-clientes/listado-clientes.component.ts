@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteApi } from '../../interfaces/interfaces';
+import { AdminServiceService } from '../../services/admin-service.service';
 
 @Component({
   selector: 'app-listado-clientes',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoClientesComponent implements OnInit {
 
-  constructor() { }
+  clientes !: ClienteApi[];
+
+  constructor(private adminService: AdminServiceService) { }
 
   ngOnInit(): void {
+    this.getClientes();
+  }
+  getClientes(){
+    this.adminService.getClientes()
+    .subscribe(resp =>{
+      this.clientes = resp;
+      console.log(this.clientes);
+    })
   }
 
 }

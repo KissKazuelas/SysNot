@@ -12,6 +12,7 @@
 						<th pSortableColumn="email">Email:<p-sortIcon field="email"></p-sortIcon></th>
 						<th pSortableColumn="phone">Telefono:<p-sortIcon field="phone"></p-sortIcon></th>
 						<th pSortableColumn="enable">Activo:<p-sortIcon field="enable"></p-sortIcon></th>
+						<th >Borrar</th>
 					</tr>
 				</ng-template>
 				<ng-template pTemplate="body" let-usuario>
@@ -20,6 +21,7 @@
 						<td> {{usuario.email}} </td>
 						<td> {{usuario.phone}} </td>
 						<td> {{usuario.enabled}} </td>
+						<td><button (click)="borrarUser(usuario.UID)" icon="pi pi-trash" pButton></button> </td>
 						
 					</tr>
 				</ng-template>

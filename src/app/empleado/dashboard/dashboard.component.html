@@ -1,1 +1,31 @@
-<p>dashboard works!</p>
+<p-orderList [value]="tramites" [dragdrop]="true" [(selection)]="tramiteSeleccionado" class="">
+  <ng-template let-tramite pTemplate="item">
+    <div class="contenedorCarta">
+      <p-card>
+        <ng-template class="carta" pTemplate="header">
+          Fecha de Inicio: {{tramite.data.initDate}}
+        </ng-template>
+        <h4> Tramite: {{tramite.data.name}}</h4>
+        <h6>Id: {{tramite.id}}</h6>
+        <p>Ultimo Movimiento: {{tramite.data.ultimoMovimiento}}</p>
+        <div class="contenedorCarta">
+          <p-button (click)="actualizarDatos(tramite)" *ngIf="tramite.data.status" label="Actualizar / Finalizar Tramite" icon="pi pi-check"></p-button>
+          <button (click)="actualizarDatos(tramite)" pButton *ngIf="!tramite.data.status" class="p-button-danger" label="Actualizar / Re-abrir Tramite" icon="pi pi-times"></button>
+        </div>
+      </p-card>
+    </div>
+    <p-dialog header="Actualizar Tramite" [(visible)]="displayUpdateDialog">
+      <label for="float-input">Ultimo Movimiento: </label>
+      <div>
+        <input id="float-input" pInputText type="text" [(ngModel)]="ultimoMovimiento">
+      </div>
+      <div class="p-field-checkbox carta">
+        <input type="checkbox" id="ny" [(ngModel)]="estadoTramite">
+        <label for="ny">Status del tramite</label>
+      </div>
+      <div class="contenedorCarta">
+        <button pButton type="button" (click)="accionActualiza()" label="Actualizar Tramite" ></button>
+      </div>
+    </p-dialog>
+  </ng-template>
+</p-orderList>

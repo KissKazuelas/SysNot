@@ -10,9 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { StatusTramiteComponent } from './home/pages/status-tramite/status-tramite.component';
+
+import {UiElementsModule} from './ui-elements/ui-elements.module';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +25,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
+    UiElementsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

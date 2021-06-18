@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MenuItem } from 'primeng/api';
 import { AuthService } from '../../auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-user',
@@ -10,12 +11,23 @@ import { AuthService } from '../../auth/services/auth.service';
 })
 export class MenuUserComponent implements OnInit {
 
-  constructor( private fireAuth:AngularFireAuth) { }
+  constructor( private fireAuth:AngularFireAuth,
+                private router : Router) { }
   items!: MenuItem[];
   logout(){
-    console.log(this.fireAuth.user);
-    this.fireAuth.signOut().then(console.log);
+   this.fireAuth.signOut().then(
+     () =>{ 
+      localStorage.removeItem('tokenUser'); 
+      this.router.navigate(['./home']);
+    }
+   )
   }
+
+  verificarSesion(){
+
+    this.fireAuth.user.subscribe(console.log)
+  }
+
   ngOnInit() {
       this.items = [
           {
