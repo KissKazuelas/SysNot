@@ -41,7 +41,7 @@
             ],
             "scripts": [],
             "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "ngswConfigPath": "ngsw-config.json",
             "scripts": [
               "node_modules/chart.js/dist/Chart.js"
             ]             
