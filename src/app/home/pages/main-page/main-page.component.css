@@ -14,7 +14,7 @@ body{
     color: white;
     text-align: center;
     font-size: 50px;
-    margin-top:140px;
+    margin-top:50px;
 }
 
 .subtitulo{
@@ -22,3 +22,26 @@ body{
     font-size: 35px;
     text-align: center;
 }
+
+.imagen{
+    width: 150px; 
+    height: 150px;
+    border-radius: 15px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;   
+    margin-top: 10px;
+}
+
+.lema{
+    color: rgb(241, 241, 241);
+    text-align: center;
+    font-size: 28px;
+}
+
+.boton{
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+}
+
