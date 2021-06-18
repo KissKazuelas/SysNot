@@ -22,6 +22,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
+import { StatusIconPipe } from '../pipes/status-icon.pipe';
 
 
 
@@ -49,7 +50,8 @@ const firebaseConfig = {
     ListadoUserComponent,
     ListadoClientesComponent,
     AddClienteTelefonoComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    StatusIconPipe,
   ],
   imports: [
     CommonModule,

@@ -17,8 +17,8 @@
 				<h4>Nombre: {{tramite.data.name}}</h4>
 				<h5 *ngIf="abogados && getAbodadoPorId(tramite.data.abogadoUID)">Encargado: {{getAbodadoPorId(tramite.data.abogadoUID)}} </h5>
 				<h5 *ngIf="!getAbodadoPorId(tramite.data.abogadoUID)">Encargado inavilitado. </h5>
-				<h5 *ngIf="true">Estatus: {{tramite.data.status ? "Activo" : "Finalizado"}} </h5>
-				<small>Fecha de inicio: {{tramite.data.initDate}} </small>
+				<h5 *ngIf="true">Estatus: {{tramite.data.status |  statusIcon}} </h5>
+				<small>Fecha de inicio: {{tramite.data.initDate | date}} </small>
 				<h5>Ultimo movimiento: </h5>
 				<input pInputText readonly type="text" class="p-inputtext p-col-12" [value]="tramite.data.ultimoMovimiento">
 			<ng-template pTemplate="footer">
