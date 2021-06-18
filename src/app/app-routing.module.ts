@@ -34,7 +34,7 @@ const routes: Routes = [
     component: ContactComponent,
   },
   {
-    path: 'FAQ',
+    path: 'faq',
     component: FaqComponent,
   },
   {
@@ -45,8 +45,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: ''
   },
-  
-  
+
 ];
 
 @NgModule({

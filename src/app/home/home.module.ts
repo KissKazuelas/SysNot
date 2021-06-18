@@ -6,9 +6,11 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UiElementsModule } from '../ui-elements/ui-elements.module';
+
 import { StatusTramiteComponent } from './pages/status-tramite/status-tramite.component';
 
+import { SharedModule } from '../shared/shared.module';
+import {UiElementsModule} from '../ui-elements/ui-elements.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,11 @@ import { StatusTramiteComponent } from './pages/status-tramite/status-tramite.co
     StatusTramiteComponent
   ],
   imports: [
-    CommonModule, FormsModule, ReactiveFormsModule, UiElementsModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    UiElementsModule
   ]
 })
 export class HomeModule { }

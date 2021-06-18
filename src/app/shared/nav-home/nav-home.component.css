@@ -1,0 +1,8 @@
+.btn{
+    margin: 0 0 0 10px;
+    font-family: FontAwesome;
+}
+
+#icon{
+    transform: rotate(90deg);
+}
