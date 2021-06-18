@@ -15,6 +15,7 @@ import { delay, tap, catchError } from 'rxjs/operators';
 export class AddClienteComponent implements OnInit {
 
   msgs1: Message[] = [];
+  verMensaje : boolean = false;
 
 
   constructor(
@@ -34,7 +35,6 @@ export class AddClienteComponent implements OnInit {
     tipo: "",
     telefono: "",
   }
-  verMensaje : boolean = false;
   ngOnInit(): void {
 
   }

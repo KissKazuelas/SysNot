@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
+import { AdminServiceService } from '../../admin/services/admin-service.service';
 
 
 @Component({
@@ -9,10 +12,13 @@ import {MenuItem} from 'primeng/api';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fireAuth:AngularFireAuth,
+              private router : Router,
+              private adminService: AdminServiceService) { }
   items!: MenuItem[];
 
   ngOnInit() {
+    this.verificarSesion();
       this.items = [
         {
           label:'Inicio',
@@ -64,4 +70,30 @@ export class MenuComponent implements OnInit {
       ];
   }
 
+  logout(){
+    this.fireAuth.signOut().then(
+      () =>{ 
+       localStorage.removeItem('tokenUser'); 
+       this.router.navigate(['./home']);
+     }
+    )
+   }
+   async verificarSesion(){
+    await this.adminService.getUsers()
+    .subscribe(users => {
+      this.fireAuth.user.subscribe( resp => {
+          for(let user of users.users){
+              if(user.UID === resp?.uid){
+                this.items.unshift(
+                  {
+                    label: `Admin - ${user.name}`,
+                    icon: 'pi pi-user',
+                  }
+                )  
+                break;
+              }
+          }  
+      })
+    })
+  }
 }

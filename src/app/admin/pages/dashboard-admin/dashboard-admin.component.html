@@ -1,4 +1,4 @@
-
+<div class="p-container" [style]="{'margin': '2em'}">
 	<h1 class="text-layout">Tramites</h1>
 	
 <p-toolbar>
@@ -6,11 +6,8 @@
     	<button routerLink="../agregarTramite"  pButton label="New"  icon="pi pi-plus"></button>	
 		
 	</div>
-    
-    <div class="p-toolbar-group-right">
-		<p-button icon="pi pi-search"></p-button>
-    </div>
 </p-toolbar>
+</div>
 <div *ngIf="!tramites">
 	<p-progressSpinner [style]="{width: '100px', height: '100px'}" styleClass="custom-spinner" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
 </div>
