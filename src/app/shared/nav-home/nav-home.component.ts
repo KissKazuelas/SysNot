@@ -19,21 +19,20 @@ export class NavHomeComponent implements OnInit {
   }
 
   reproducir(){
-    speechSynthesis.cancel();
-    this.speech.volume = 1;
-    this.speech.rate = 1;
-    this.speech.pitch = 1;
-    this.speech.lang = 'es';
-    this.speech.text=this.texto[0];
-    speechSynthesis.speak(this.speech);
-    this.speech.text=this.texto[1];
-    speechSynthesis.speak(this.speech);
-    /*this.speech.text=this.texto;
-    this.speech.volume = 1;
-    this.speech.rate = 1;
-    this.speech.pitch = 1;
-    this.speech.lang = 'es';
-    speechSynthesis.speak(this.speech);*/
+    if(this.texto.length > 0){      
+      speechSynthesis.cancel();
+      this.speech.volume = 1;
+      this.speech.rate = 1;
+      this.speech.pitch = 1;
+      this.speech.lang = 'es';
+      this.speech.text=this.texto[0];
+      speechSynthesis.speak(this.speech);
+      this.speech.text=this.texto[1];
+      speechSynthesis.speak(this.speech);
+    }else{
+      return;
+    }
+
   }
 
   pausar(){
@@ -48,4 +47,4 @@ export class NavHomeComponent implements OnInit {
   resumen(){
     speechSynthesis.resume();
   }
-}
+  }
