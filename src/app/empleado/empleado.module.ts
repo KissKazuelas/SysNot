@@ -9,6 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDUgq63WqudGUS1CqHfLRvEb2ogj6sV9KA",
@@ -31,8 +33,9 @@ const firebaseConfig = {
     UiElementsModule,
     SharedModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
-
+    AngularFireAuthModule,
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class EmpleadoModule { }

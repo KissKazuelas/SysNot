@@ -15,7 +15,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import {DialogModule} from 'primeng/dialog';
 
 import {MultiSelectModule} from 'primeng/multiselect';
-
+import {OrderListModule} from 'primeng/orderlist';
 import {CheckboxModule} from 'primeng/checkbox';
 import {ChartModule} from 'primeng/chart';
 
@@ -41,6 +41,7 @@ import {ChartModule} from 'primeng/chart';
     CheckboxModule,
     ChartModule,
     TabMenuModule,
+    OrderListModule,
   ]
 })
 export class UiElementsModule { }
